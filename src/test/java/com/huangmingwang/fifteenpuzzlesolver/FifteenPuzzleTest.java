@@ -56,4 +56,47 @@ public class FifteenPuzzleTest {
         assertEquals("O", puzzle.getBoardValue(3, 2));
         assertEquals("-", puzzle.getBoardValue(3, 3));
     }
+
+    @Test
+    public void testHeuristicFunction() {
+        FifteenPuzzle puzzle = new FifteenPuzzle();
+        // String[][] board = {
+        //     {"A", "C", "G", "D"},
+        //     {"E", "B", "-", "H"},
+        //     {"I", "F", "J", "K"},
+        //     {"M", "N", "O", "L"}
+        // };
+        puzzle.setBoardValue(0, 0, "A");
+        puzzle.setBoardValue(0, 1, "C");
+        puzzle.setBoardValue(0, 2, "G");
+        puzzle.setBoardValue(0, 3, "D");
+        puzzle.setBoardValue(1, 0, "E");
+        puzzle.setBoardValue(1, 1, "B");
+        puzzle.setBoardValue(1, 2, "-");
+        puzzle.setBoardValue(1, 3, "H");
+        puzzle.setBoardValue(2, 0, "I");
+        puzzle.setBoardValue(2, 1, "F");
+        puzzle.setBoardValue(2, 2, "J");
+        puzzle.setBoardValue(2, 3, "K");
+        puzzle.setBoardValue(3, 0, "M");
+        puzzle.setBoardValue(3, 1, "N");
+        puzzle.setBoardValue(3, 2, "O");
+        puzzle.setBoardValue(3, 3, "L");
+
+        // Calculate the heuristic value
+        int heuristicValue = puzzle.heuristicFunction();
+
+        // Verify the heuristic value
+        assertEquals(7, heuristicValue);
+    }
+
+    // @Test
+    // public void testSearchAlg() {
+    //     FifteenPuzzle puzzle = new FifteenPuzzle();
+    //     puzzle.readBoardFromFile("sample.txt");
+
+    //     // // Verify that the search algorithm finds the solution
+    // }
+
+
 }
