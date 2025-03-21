@@ -80,7 +80,9 @@ public class FifteenPuzzle implements Cloneable {
     }
 
     public void readBoardFromFile(String fileName) {
-        String filePath = "src/main/res/puzzle/" + fileName;
+        // 使用类加载器读取资源文件
+        ClassLoader classLoader = getClass().getClassLoader();
+        String filePath = classLoader.getResource(fileName).getFile();
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
             int row = 0;

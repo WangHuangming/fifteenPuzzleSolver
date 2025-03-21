@@ -1,16 +1,16 @@
 package com.huangmingwang.fifteenpuzzlesolver;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNotSame;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNotSame;
+import org.junit.jupiter.api.Test;
 
 public class FifteenPuzzleTest {
 
     @Test
     public void testCloneCreatesDeepCopy() {
         FifteenPuzzle original = new FifteenPuzzle();
-        original.readBoardFromFile("sample.txt");
+        original.readBoardFromFile("puzzle/sample.txt");
 
         // Clone the original puzzle
         FifteenPuzzle cloned = original.clone();
@@ -36,7 +36,9 @@ public class FifteenPuzzleTest {
     @Test
     public void testReadBoardFromFile() {
         FifteenPuzzle puzzle = new FifteenPuzzle();
-        puzzle.readBoardFromFile("sample.txt");
+        // 使用类加载器读取资源文件
+        String fileName = "puzzle/sample.txt";
+        puzzle.readBoardFromFile(fileName);
 
         // Verify that the board was read correctly using accessors
         assertEquals("A", puzzle.getBoardValue(0, 0));
